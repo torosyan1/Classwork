@@ -1,0 +1,21 @@
+function invert(obj){
+  
+  let res={} 
+   for(let key in obj){
+     if(obj.hasOwnProperty(key)){
+       if(res.hasOwnProperty(obj[key])){
+         if(Array.isArray(res[obj[key]])){
+           res[obj[key]].push(key)
+         }else{
+           res[obj[key]]=[res[obj[key]]];
+           res[obj[key]].push(key);
+          
+         }
+       }else{
+         res[obj[key]]=key
+       }
+       
+     }
+   }
+  return res;
+} 
